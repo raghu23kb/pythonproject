@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Data in dgrid</title>
+    <style type="text/css">
+    	@import "dgrid/css/dgrid.css";
+    </style>
+    <script src="data.js"></script>
+</head>
+<body>
+    <div id="grid"></div>
+    <!-- this configuration assumes that the dgrid package is located
+         in the filesystem as a sibling to the dojo package -->
+    <script src="dojo/dojo.js" data-dojo-config="async: true"></script>
+    
+    <script>
+        require([ 'dojo/_base/declare', 'dgrid/Grid', 'dgrid/extensions/ColumnHider', 'dojo/domReady!' ], function (declare, Grid, ColumnHider) {
+	    	
+	    	var data = getQueryData();
+
+ 			var columns = {
+		        columns: {
+		        	geck: {
+		        		label: 'Geck'
+		        	},
+		            feature: {
+	            		label: 'Feature Name'
+		            },
+		            testfile: {
+		            	label: 'Test File'
+		            },
+		            testpoint: {
+		            	label: 'Test Point'		            }
+	        	}
+	    	};
+
+	    	var CustomGrid = declare([ Grid, ColumnHider ]);
+		    var grid = new CustomGrid(columns, 'grid');
+			grid.renderArray(data);	
+        });
+    </script>
+    
+</body>
+</html>
