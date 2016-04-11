@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add To Query</title>
+  <script src="myjs/UIHelpers.js"></script>
+</head>
+<body>
+  <h1>Query</h1>
+  <div>
+    <textarea id="visualizeQuery" rows="6" cols="100" placeholder="type or add query" value=""></textarea>
+  </div>
+  <div>
+    <select name="columnSelect" id="columnSelect">
+      <option value="Geck">Geck</option>
+      <option value="FeatureName" selected>Feature Name</option>
+      <option value="TestFolder">Test Folder</option>
+      <option value="TestFile">Test File</option>
+      <option value="TestPoint">Test Point</option>
+    </select>
+    <input type="text" name="searchString" id="searchString" placeholder="enter a search string"/>
+
+    <input type="button" id="addToQueryButton" value="Add to Query" onclick="addToQueryFunction('')">
+    <input type="button" id="andButton" value="AND" onclick="addToQueryFunction('AND')">
+    <input type="button" id="orButton" value="OR" onclick="addToQueryFunction('OR')">
+    <input type="button" id="resetButton" value="RESET QUERY" onclick="resetQuery()">
+  </div>
+</body>
+</html>
